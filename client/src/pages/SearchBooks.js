@@ -24,9 +24,7 @@ const SearchBooks = () => {
   // learn more here: https://reactjs.org/docs/hooks-effect.html#effects-with-cleanup
   useEffect(() => {
     if(query && query.me.savedBooks) {
-      const books = query.me.savedBooks.map(book => {
-        book.bookId
-      })
+      const books = query.me.savedBooks.map(book => book.bookId)
       setSavedBookIds(books)
     }
   }, [query]);
