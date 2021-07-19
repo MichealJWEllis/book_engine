@@ -4,9 +4,12 @@ import { GET_ME } from '../utils/queries'
 import { REMOVE_BOOK } from '../utils/mutations'
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
+import { useMutation, useQuery } from '@apollo/client';
 
 const SavedBooks = () => {
+  const { query, loading } = useQuery(GET_ME)
   const [userData, setUserData] = useState({});
+  const [remove] = useMutation(REMOVE_BOOK)
 
   // use this to determine if `useEffect()` hook needs to run again
   const userDataLength = Object.keys(userData).length;
